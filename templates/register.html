@@ -1,0 +1,45 @@
+{% extends 'base.html' %}
+{% block menu %}
+	<a href="{{ url_for('register') }}" class="w3-bar-item w3-left w3-button" style="font-weight: bold"><img width="90px" src="../static/icons/book.png" class="w3-center">  JOLINA'S ONLINE BOOK STORE</a>
+	<a href="{{ url_for('login') }}" class="w3-bar-item w3-right w3-button">LOGIN</a>
+{% endblock %}
+{% block content %}
+	{% with messages = get_flashed_messages() %}
+		{% if messages %}
+			{% for message in messages %}
+				<div id="flashMessage" class="w3-panel w3-amber w3-container w3-padding" onclick="document.getElementById('flashMessage').style.display='none'">{{ message }}</div>
+			{% endfor%}
+		{% endif%}
+	{% endwith%}
+	<br>
+		<div class="w3-mobile w3-animate-top w3-card-4 w3-container w3-black w3-padding-16" style="width:40%;margin:auto">
+			<form action="register" method="post">
+				<p>
+					<a width="200px" class="w3-center" style="font-weight: bold">REGISTER</a>
+				</p>
+				<p>
+					<input type="text" name="name" id="name" placeholder="Name" class="w3-input w3-border">
+				</p>
+				<p>
+					<input type="email" name="email" id="email" placeholder="Email" class="w3-input w3-border">
+				</p>
+				<p>
+					<input type="text" name="address" id="address" placeholder="Address"class="w3-input w3-border">
+				</p>
+				<p>
+					<input type="text" name="username" id="username" placeholder="Username" class="w3-input w3-border">
+				</p>
+				<p>
+					<input type="password" name="password" id="password" placeholder="Password" class="w3-input w3-border">
+				</p>
+				<p>
+					<br>
+					<input type="submit" value="REGISTER" class="w3-button w3-right w3-gray" style="font-weight: bold">
+					<br>
+				</p>
+			</form>
+			
+		</div>
+	</div>
+
+{% endblock %}

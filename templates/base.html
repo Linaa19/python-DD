@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset = "utf-8">
+		<meta http-equiv="X-UA-Compatible" content="ie-edge">
+		<meta name="viewport" content="width=device-width,initial-scale=1.0">
+		<link rel="stylesheet" href="{{ url_for('static',filename='/css/w3.css')}}">
+		<title>{{ title | upper }}</title>
+	</head>
+	<body>
+		
+		<div class=" w3-container w3-padding w3-black w3-card-2">
+			{% block menu %}
+			{% endblock %}
+		</div>
+		<div class="w3-container w3-gray w3-padding">		
+			{% block content %}
+			{% endblock %}
+		</div>
+		<hr>
+		<div class="w3-center">Bucayan, Jolina Jane &copy; 2023</div>
+		<script>
+			function deletecustomer(id){
+				var ok = confirm("Do you really want to delete this ? "+id);
+				if(ok){
+					location.href = "/admin/deletecustomer/"+id
+				}
+			}
+
+			function deleteitem(id){
+				var ok = confirm("Do you really want to delete this ? "+id);
+				if(ok){
+					location.href = "/admin/deleteitem/"+id
+				}
+			}
+		</script>
+	</body>
+</html>
